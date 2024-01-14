@@ -10,8 +10,8 @@ services:
             POSTGRES_USER: postgres
             POSTGRES_PASSWORD: postgres
             POSTGRES_DB: application
-#        volumes:
-#            - ./database/postgres:/docker-entrypoint-initdb.d
+        volumes:
+            - ./tests/database/maindb:/docker-entrypoint-initdb.d
         networks:
             - net_tenant
 
