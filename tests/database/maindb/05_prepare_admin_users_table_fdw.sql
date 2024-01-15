@@ -33,5 +33,10 @@ CREATE OR REPLACE VIEW admin.users AS
         'client1' as company, id, login, first_name, last_name, email, pass,
         enabled, created_at, updated_at
     FROM client1.users
+    UNION ALL
+    SELECT
+        'client2' as company, id, login, first_name, last_name, email, pass,
+        enabled, created_at, updated_at
+    FROM client2.users
 ;
 

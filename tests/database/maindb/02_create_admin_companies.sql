@@ -1,5 +1,5 @@
 
-CREATE TABLE IF NOT EXISTS admin.companies (
+CREATE TABLE admin.companies (
     id SERIAL PRIMARY KEY,
     name varchar(100) NOT NULL,
     schema_name varchar(100) NOT NULL,
@@ -13,4 +13,7 @@ CREATE TABLE IF NOT EXISTS admin.companies (
     CONSTRAINT companies_schema_name_key UNIQUE (schema_name)
 );
 
-INSERT INTO admin.companies (name, schema_name) VALUES ('Cliente de Teste 1', 'client1');
+INSERT INTO admin.companies (name, schema_name)
+VALUES
+    ('Cliente de Teste 1', 'client1'),
+    ('Testolandia S.A.', 'client2');
