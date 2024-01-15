@@ -25,11 +25,18 @@ class UserFactory extends Factory
     {
         return [
             'name' => fake()->name(),
+            'first_name' => fake()->firstName(),
+            'last_name' => fake()->lastName(),
+            'login' => fake()->userName(),
             'email' => fake()->unique()->safeEmail(),
+            'pass' => static::$password ??= md5('password'),
             'email_verified_at' => now(),
-            'password' => static::$password ??= Hash::make('password'),
-            'remember_token' => Str::random(10),
+            // 'password' => static::$password ??= Hash::make('password'),
+            // 'remember_token' => Str::random(10),
         ];
+        //     enabled boolean DEFAULT TRUE NOT NULL,
+        //     created_at timestamp DEFAULT current_timestamp,
+        //     updated_at timestamp DEFAULT current_timestamp,
     }
 
     /**
