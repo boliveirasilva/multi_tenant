@@ -12,6 +12,8 @@ services:
             POSTGRES_DB: application
         volumes:
             - ./tests/database/maindb:/docker-entrypoint-initdb.d
+        depends_on:
+            - client_database
         networks:
             - net_tenant
 
@@ -24,6 +26,8 @@ services:
             POSTGRES_USER: client
             POSTGRES_PASSWORD: client
             POSTGRES_DB: client_tenant
+        volumes:
+            - ./tests/database/clientdb:/docker-entrypoint-initdb.d
         networks:
             - net_tenant
 

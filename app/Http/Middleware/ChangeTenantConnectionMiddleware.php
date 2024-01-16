@@ -22,7 +22,10 @@ class ChangeTenantConnectionMiddleware
             $connection['search_path'] = $company->schema_name;
 
             if ($company->db_host) {
-                $connection['host']     = $company->db_host;
+                preg_match('/^(?<host>[a-z0-9\.-]+):?(?<port>\d{1,4})?$/i', $company->db_host, $match);
+
+                $connection['host']     = $match['host'];
+                $connection['port']     = $match['port'] ?? $connection['port'];
                 $connection['database'] = $company->db_name;
                 $connection['username'] = $company->db_user;
                 $connection['password'] = $company->db_pass;
